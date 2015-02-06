@@ -1,0 +1,21 @@
+TARGETNAME=sbvmidi
+TARGETTYPE=DRIVER
+TARGETPATH=lib$(BUILD_ALT_DIR)
+TARGETLIBS= \
+ $(DDK_LIB_PATH)\ntoskrnl.lib \
+ $(DDK_LIB_PATH)\hal.lib \
+ $(DDK_LIB_PATH)\wmilib.lib \
+ $(DDK_LIB_PATH)\portcls.lib \
+ $(DDK_LIB_PATH)\ksguid.lib \
+ $(DDK_LIB_PATH)\libcntpr.lib
+
+SOURCES= \
+ adapter.cpp \
+ miniport.cpp \
+ stream.cpp \
+ stdunk.cpp
+
+C_DEFINES=$(C_DEFINES) -D_In_=
+C_DEFINES=$(C_DEFINES) -D_In_opt_=
+C_DEFINES=$(C_DEFINES) -D_Out_opt_=
+C_DEFINES=$(C_DEFINES) -D_COM_Outptr_=
